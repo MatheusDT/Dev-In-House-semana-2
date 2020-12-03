@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do List Dev In House</title>
-    <link rel="stylesheet" href="text.css">
+    <link rel="stylesheet" href="style.css">
    
     
 </head>
@@ -52,7 +52,7 @@
        if (document.getElementById("task").value != ""){
            item  = document.getElementById("task").value;    // = recebe um valor do input task
            itemId= ul.childElementCount;        //está recebendo a propriedade childelementcount da lista,que corresponde ao numero de elementos que está lista contém
-           li    = createItemEl(item.value,itemId); // li esta recebendo um elemento de lista criado pela createItemEl
+           li    = createItemEl(item,itemId); // li esta recebendo um elemento de lista criado pela createItemEl
            li.appendChild(createRemoveTaskBtn(itemId)); 
            ul.appendChild(li); // ul está recebendo um item li
         }
