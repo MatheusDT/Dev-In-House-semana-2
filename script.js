@@ -1,38 +1,48 @@
 var li;
 var itemId;
 var item;
-addTask= function (){
-    var ul = document.getElementById("myList"); // a variavel declarada ul está recebendo o valor da tag que possue myList como identificador
-    console.log(ul)
-    //linha 48 está fazendo uma verificação do valor do documento e diferente de vazio.!!!      
-   if (document.getElementById("task").value != ""){
-       var item = document.getElementById("task").value;    // = recebe um valor do input task
-       var itemId= ul.childElementCount;        //está recebendo a propriedade childelementcount da lista,que corresponde ao numero de elementos que está lista contém
-       var li = createItemEl(item.value,itemId); // li esta recebendo um elemento de lista criado pela createItemEl
-       li.appendChild(createRemoveTaskBtn(itemId)); 
-       ul.appendChild(li); // ul está recebendo um item li
-   }
+addTask = function () {
+    var ul = document.getElementById("myList");
+    if (document.getElementById("task").value != "") {
+
+        item = document.getElementById("task");
+
+        itemId = ul.childElementCount;
+
+        li = createItemEl(item.value, itemId);
+        li.appendChild(createRemoveTaskBtn(itemId));
+        ul.appendChild(li);
+        item.value = "";
+    }
 
 }
-   
-removeTask= function (itemId){
-         for(i = 0 ; i < ul.children.length ; i++){
-             if(ul.children[i].getAttribute("index") == itemId){
-                 ul.children[i].remove();
-             }
-         }
+
+removeTask = function (itemId) {
+    var ul = document.getElementById("myList");
+    for (i = 0; i < ul.children.length; i++) {
+
+        if (ul.children[i].getAttribute("index") == itemId) {
+
+            ul.children[i].remove();
+
+        }
+    }
 }
 
-createItemEl= function (itemValue, itemId){
-     let li = document.createElement("li");
-     li.setAttribute("index", itemId);
-     li.appendChild(document.createTextNode(itemValue)); 
-     return li;
+createItemEl = function (itemValue, itemId) {
+
+    let li = document.createElement("li");
+
+    li.setAttribute("index", itemId);
+
+    li.appendChild(document.createTextNode(itemValue));
+
+    return li;
 }
 
-createRemoveTaskBtn= function(itemId){
-     let btn = document.createElement("button");
-     btn.setAttribute("onclick", "removeTask("+itemId+")");
-     btn.innerHTML="X";
-     return btn;
+createRemoveTaskBtn = function (itemId) {
+    let btn = document.createElement("button");
+    btn.setAttribute("onclick", "removeTask(" + itemId + ")");
+    btn.innerHTML = "X";
+    return btn;
 }

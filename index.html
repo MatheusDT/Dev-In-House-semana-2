@@ -1,90 +1,37 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>To-Do List Dev In House</title>
-    <link rel="stylesheet" href="style.css">
-   
-    
-</head>
-<body>
-    
-    <div class='content'>
-         
-        <div class="row">
-                 
-            <div class="col-12">
-                   <h1>To-Do List</h1>
-                <form>
+    <link rel="stylesheet" href="style.css" />
+    <script type="text/javascript" src="script.js"></script>
+  </head>
+  <body>
+    <div class="content">
+      <div class="row">
+        <div class="col-12">
+          <h1>Event List</h1>
+          <form>
+            <input
+              type="text"
+              name="task"
+              id="task"
+              placeholder="Inserir evento..."
+            />
+            <input type="button" name="" onclick="addTask();" value="Inserir" />
+          </form>
+        </div>
+      </div>
 
-                     <input type="text" name="task" id='task' placeholder="Nova tarefa"/>
-                     <input type="button" name="" value='AddTask' onclick="addTask();"/>
-                      
-                 </form>
-
-
-                 </div>
-
-           </div>
-        
-        </div class="row">
-             
-            <div class="col-12">
-
-                <div class="to-do-list-box">
-                  
-                    <ul id="myList">
-                        <li>item 1</li>
-                      </ul>
- </div>
- </div>
- </div>
-</div>
-
-<script type="text/javascript">
-    var ul = document.getElementById("myList"); // a variavel declarada ul está recebendo o valor da tag que possue myList como identificador
-    var li;
-    var itemId;
-    var item;
-    addTask= function (){
-       //linha 48 está fazendo uma verificação do valor do documento e diferente de vazio.!!!      
-       if (document.getElementById("task").value != ""){
-           item  = document.getElementById("task").value;    // = recebe um valor do input task
-           itemId= ul.childElementCount;        //está recebendo a propriedade childelementcount da lista,que corresponde ao numero de elementos que está lista contém
-           li    = createItemEl(item,itemId); // li esta recebendo um elemento de lista criado pela createItemEl
-           li.appendChild(createRemoveTaskBtn(itemId)); 
-           ul.appendChild(li); // ul está recebendo um item li
-        }
-    }
-       
-       
-
-
-    removeTask= function (itemId){
-             for(i = 0 ; i < ul.children.length ; i++){
-                 if(ul.children[i].getAttribute("index") == itemId){
-                     ul.children[i].remove();
-                 }
-             }
-    }
-
-    createItemEl= function (itemValue, itemId){
-         let li = document.createElement("li");
-         li.setAttribute("index", itemId);
-         li.appendChild(document.createTextNode(itemValue)); 
-         return li;
-    }
-
-    
-
-    createRemoveTaskBtn= function(itemId){
-         let btn = document.createElement("button");
-         btn.setAttribute("onclick", "removeTask("+itemId+")");
-         btn.innerHTML="X";
-         return btn;
-    }
-</script>
- 
-</body>
+      <div class="row">
+        <div class="col-12">
+          <div class="to-do-list-box">
+            <label>Afazeres</label>
+            <ul id="myList"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
