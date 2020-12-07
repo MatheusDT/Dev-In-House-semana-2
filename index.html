@@ -1,37 +1,50 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>To-Do List Dev In House</title>
-    <link rel="stylesheet" href="style.css" />
-    <script type="text/javascript" src="script.js"></script>
-  </head>
-  <body>
-    <div class="content">
-      <div class="row">
-        <div class="col-12">
-          <h1>Event List</h1>
-          <form>
-            <input
-              type="text"
-              name="task"
-              id="task"
-              placeholder="Inserir evento..."
-            />
-            <input type="button" name="" onclick="addTask();" value="Inserir" />
-          </form>
-        </div>
-      </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="./imagemlist.png">
+    <script src="script.js" defer></script>
+    <title>Event List</title>
+    
+</head>
+<body>
 
-      <div class="row">
-        <div class="col-12">
-          <div class="to-do-list-box">
-            <label>Afazeres</label>
-            <ul id="myList"></ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
+	<div class='content'>
+		
+
+			<div class="row">
+					
+					<div class="col-12">
+						<h1> Event List</h1>
+						<form>
+
+							<input type="text" name="task" id='task' placeholder="Novo Item..." />
+							<input type="button" name="" 
+									onclick="addTask();" 
+									value="addTask"/>
+
+						</form>
+
+					</div>
+
+			</div>
+
+			<div class="row">
+				<div class="col-12">
+				
+					<div class="to-do-list-box">
+					
+						<label>My List</label>
+						<ul id="eventList">	
+
+						</ul>
+
+
+					</div>
+
+				</div>
+			</div>
+
+	</div>

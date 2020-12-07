@@ -1,48 +1,53 @@
-var li;
-var itemId;
-var item;
-addTask = function () {
-    var ul = document.getElementById("myList");
-    if (document.getElementById("task").value != "") {
+    var ul = document.getElementById("eventList");
+	var li = document.getElementById("eventList");
+	var item;
+	function addTask	 (){
+		
+		if(document.getElementById("task").value != ""){
 
-        item = document.getElementById("task");
+			item   = document.getElementById("task");
 
-        itemId = ul.childElementCount;
+			itemId = ul.childElementCount;
 
-        li = createItemEl(item.value, itemId);
-        li.appendChild(createRemoveTaskBtn(itemId));
-        ul.appendChild(li);
-        item.value = "";
+			li 	   = createItemEl(item.value,itemId);
+			li.appendChild(createRemoveTaskBtn(itemId));
+			ul.appendChild(li);
+			item.value = "";
+		}
+
+	}
+
+	function removeTask ( itemId ){
+
+		for( i = 0 ; i < ul.children.length ; i++){
+
+			if(ul.children[i].getAttribute("index") == itemId ){
+
+				ul.children[i].remove();
+
+			}
+		}
+    }
+   
+  
+
+	function createItemEl(itemValue, itemId){
+     
+        let li = document.createElement("li");
+
+		li.setAttribute("index", itemId);
+
+		li.appendChild(document.createTextNode(itemValue));
+
+		return li;
     }
 
-}
-
-removeTask = function (itemId) {
-    var ul = document.getElementById("myList");
-    for (i = 0; i < ul.children.length; i++) {
-
-        if (ul.children[i].getAttribute("index") == itemId) {
-
-            ul.children[i].remove();
-
-        }
+	
+	function createRemoveTaskBtn (itemId){
+		let btn =  document.createElement("button");
+		btn.setAttribute("onclick", "removeTask("+itemId+")"); 
+		btn.innerHTML ="X";
+		return btn;
     }
-}
-
-createItemEl = function (itemValue, itemId) {
-
-    let li = document.createElement("li");
-
-    li.setAttribute("index", itemId);
-
-    li.appendChild(document.createTextNode(itemValue));
-
-    return li;
-}
-
-createRemoveTaskBtn = function (itemId) {
-    let btn = document.createElement("button");
-    btn.setAttribute("onclick", "removeTask(" + itemId + ")");
-    btn.innerHTML = "X";
-    return btn;
-}
+    
+    
